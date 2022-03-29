@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon  } from '@fortawesome/react-fontawesome';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
 import Header from './Components/Header/Header';
 import Players from './Components/Players/Players';
@@ -6,6 +8,7 @@ import Cart from './Components/Cart/Cart';
 import Data from './fData/data';
 
 const App = () => {
+  const element = <FontAwesomeIcon icon={faCartShopping}/>
   const [cart, setCart] = useState([]);
   const [data] = useState(Data);
 
@@ -31,8 +34,8 @@ const totalPrice = cart.reduce((acc, current) => acc + parseInt(current.price), 
                   <ul className="list-group"> 
                     {cart.map(player => <Cart player={player} />)}
                   </ul>
-                  <button type="button " className="btn btn-success btn-block">
-                  Buy Now<span className="badge badge-light">$ {totalPrice}</span>
+                  <button type="button " className="btn btn-success btn-block text-center">
+                {element} Buy Now<span className="badge badge-light">$ {totalPrice}</span>
                   </button>
                 </div>
               </div>
